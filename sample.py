@@ -51,9 +51,9 @@ st.markdown("""
         0.08
     );
 
-    border-radius: 20px;
+    border-radius: 14px;
 
-    padding: 24px;
+    padding: 14px;
 
     box-shadow:
         0 8px 32px rgba(
@@ -407,7 +407,7 @@ if st.session_state.get("run_screening"):
         <div style='padding:10px;
         background-color:#1A1D24;
         border-radius:10px;
-        margin-bottom:10px;'>
+        margin-bottom:8px;'>
 
         <p style='color:#00FFAA;
         font-size:18px;'>
@@ -585,7 +585,7 @@ if st.session_state.get("run_screening"):
         <div style='padding:16px;
         background-color:#1A1D24;
         border-radius:15px;
-        margin-bottom:20px;
+        margin-bottom:8px;
         border:1px solid #00FFAA;'>
 
         <h2 style='color:#00FFAA;'>
@@ -639,7 +639,7 @@ if st.session_state.get("run_screening"):
                 style='text-align:center;'>
 
                 <h3 style='color:{color};
-                margin-bottom:10px;'>
+                margin-bottom:8px;'>
 
                 {title}
 
@@ -722,7 +722,7 @@ if st.session_state.get("run_screening"):
             st.markdown(f"""
 
             <div class='glass-card'
-            style='margin-bottom:12px;
+            style='margin-bottom:8px;
             padding:16px;'>
 
             <div style='display:flex;
@@ -732,7 +732,7 @@ if st.session_state.get("run_screening"):
             <div style='width:70%;'>
 
             <h3 style='color:white;
-            margin-bottom:6px;'>
+            margin-bottom:8px;'>
 
             #{row['順位']}
             {row['銘柄']}
