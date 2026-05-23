@@ -285,7 +285,7 @@ def get_chart_data(ticker, period):
 
 stock_list = get_theme_stocks(
     theme
-)
+).head(20)
 
 if stock_list.empty:
 
@@ -423,6 +423,8 @@ if st.session_state.get("run_screening"):
         progress.progress(
             (idx + 1) / len(stock_list)
         )
+
+        time.sleep(1)
 
     status_text.success(
         "✅ 分析完了！"
