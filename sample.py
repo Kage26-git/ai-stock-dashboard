@@ -537,13 +537,17 @@ if st.session_state.get("run_screening"):
 
                 <div class='glass-card'>
 
-                <h2 style='color:#00FFAA;'>
+                <h4 style='color:#00FFAA;
+                margin:0;
+                font-size:14px;'>
 
                 {medals[idx]} #{idx+1}
 
                 </h2>
 
-                <h2 style='color:white;'>
+                <h3 style='color:white;
+                margin:4px 0;
+                font-size:18px;'>
 
                 {row['銘柄']}
 
@@ -560,7 +564,8 @@ if st.session_state.get("run_screening"):
                 <hr style='border:1px solid #333;'>
 
                 <p style='color:white;
-                font-size:16px;'>
+                font-size:12px;
+                line-height:1.4;'>
 
                 📉 RSI:
                 {row['RSI']}
@@ -588,7 +593,9 @@ if st.session_state.get("run_screening"):
         margin-bottom:8px;
         border:1px solid #00FFAA;'>
 
-        <h2 style='color:#00FFAA;'>
+        <h4 style='color:#00FFAA;
+        margin:0;
+        font-size:14px;'>
         🏆 今日の注目銘柄
         </h2>
 
