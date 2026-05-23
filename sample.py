@@ -207,22 +207,24 @@ def get_stock_data(ticker):
     # 売上成長率
     # =====================================
 
-    financials = stock.financials
+    # financials = stock.financials
 
-    revenue_growth = None
+    # revenue_growth = None
 
-    if (
-        "Total Revenue" in financials.index
-        and len(financials.columns) >= 2
-    ):
+    # if (
+    #     "Total Revenue" in financials.index
+    #     and len(financials.columns) >= 2
+    # ):
 
-        latest_revenue = financials.loc["Total Revenue"].iloc[0]
-        previous_revenue = financials.loc["Total Revenue"].iloc[1]
+    #     latest_revenue = financials.loc["Total Revenue"].iloc[0]
+    #     previous_revenue = financials.loc["Total Revenue"].iloc[1]
 
-        revenue_growth = (
-            (latest_revenue - previous_revenue)
-            / previous_revenue
-        ) * 100
+    #     revenue_growth = (
+    #         (latest_revenue - previous_revenue)
+    #         / previous_revenue
+    #     ) * 100
+
+    revenue_growth = 0
 
     # =====================================
     # 株価履歴
