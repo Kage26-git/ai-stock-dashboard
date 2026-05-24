@@ -98,7 +98,7 @@ if "booted" not in st.session_state:
 
     """, unsafe_allow_html=True)
 
-    time.sleep(2.5)
+    time.sleep(4)
 
     splash.empty()
 
