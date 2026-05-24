@@ -592,30 +592,6 @@ if st.session_state.get("run_screening"):
         
             """, unsafe_allow_html=True)
 
-        st.markdown(f"""
-        <div style='padding:10px 12px;
-        background-color:#1A1D24;
-        border-radius:15px;
-        margin-bottom:4px;
-        border:1px solid #00FFAA;'>
-
-        <h4 style='color:#00FFAA;
-        margin:0;
-        font-size:14px;'>
-        🏆 今日の注目銘柄
-        </h2>
-
-        <h1 style='color:white;'>
-        {top_stock['銘柄']}
-        </h1>
-
-        <p style='color:#BBBBBB; font-size:18px;'>
-        {top_stock['AI分析']}
-        </p>
-
-        </div>
-        """, unsafe_allow_html=True)
-
         col1, col2, col3 = st.columns(3)
 
         kpi_data = [
