@@ -18,6 +18,72 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+# =====================================
+# 起動アニメーション
+# =====================================
+
+if "booted" not in st.session_state:
+
+    splash = st.empty()
+
+    splash.markdown("""
+
+    <div style='height:70vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;'>
+
+    <h1 style='color:#00FFAA;
+    font-size:42px;
+    margin-bottom:10px;'>
+
+    🐻 AI株投資
+
+    </h1>
+
+    <p style='color:white;
+    font-size:18px;
+    letter-spacing:2px;'>
+
+    INITIALIZING...
+
+    </p>
+
+    <div style='width:240px;
+    height:10px;
+    background:#222;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:20px;'>
+
+    <div style='width:80%;
+    height:100%;
+    background:#00FFAA;
+    animation: loading 2s linear;'>
+
+    </div>
+
+    </div>
+
+    <p style='color:#888;
+    margin-top:20px;
+    font-size:12px;'>
+
+    AI THEME ENGINE READY
+
+    </p>
+
+    </div>
+
+    """, unsafe_allow_html=True)
+
+    time.sleep(2.5)
+
+    splash.empty()
+
+    st.session_state["booted"] = True
+
 st.markdown("""
 
 <style>
