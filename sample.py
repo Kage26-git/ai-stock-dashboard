@@ -508,82 +508,89 @@ if st.session_state.get("run_screening"):
 
     with tab1:
         top_stock = df.iloc[0]
-
         # =====================================
-        # TOP3カード
+        # TOP3
         # =====================================
-
+        
         top3 = df.head(3)
-
-        cols = st.columns(
-            [1,1,1],
-            gap="small"
-        )
-
+        
         medals = [
             "🥇",
             "🥈",
             "🥉"
         ]
-
+        
+        st.markdown(
+            "## 🏆 TOP3"
+        )
+        
         for idx, (_, row) in enumerate(
             top3.iterrows()
         ):
-
-            with cols[idx]:
-
-                st.markdown(f"""
-
-                <div class='glass-card'>
-
-                <h4 style='color:#00FFAA;
-                margin:0;
-                font-size:14px;'>
-
-                {medals[idx]} #{idx+1}
-
-                </h2>
-
-                <h3 style='color:white;
-                margin:4px 0;
-                font-size:18px;'>
-
-                {row['銘柄']}
-
-                </h2>
-
-                <p style='color:#BBBBBB;
-                min-height:45px;
-                font-size:14px;'>
-
-                {row['AI分析']}
-
-                </p>
-
-                <hr style='border:1px solid #333;'>
-
-                <p style='color:white;
-                font-size:12px;
-                line-height:1.4;'>
-
-                📉 RSI:
-                {row['RSI']}
-
-                <br>
-
-                💰 PER:
-                {row['PER']}
-
-                <br>
-
-                🎯 判定:
-                {row['判定']}
-
-                </p>
-
-                </div>
-
-                """, unsafe_allow_html=True)
+        
+            signal_color = "#00FFAA"
+        
+            if "過熱" in str(row["判定"]):
+        
+                signal_color = "#FF4B4B"
+        
+            st.markdown(f"""
+        
+            <div class='glass-card'
+            style='margin-bottom:4px;
+            padding:10px 12px;'>
+        
+            <div style='display:flex;
+            justify-content:space-between;
+            align-items:center;'>
+        
+            <div style='width:80%;'>
+        
+            <h4 style='color:white;
+            margin:0 0 2px 0;
+            font-size:15px;'>
+        
+            {medals[idx]}
+            {row['銘柄']}
+        
+            </h4>
+        
+            <div style='color:#BBBBBB;
+            font-size:11px;'>
+        
+            {row['AI分析']}
+        
+            </div>
+        
+            </div>
+        
+            <div style='text-align:right;'>
+        
+            <div style='color:{signal_color};
+            font-size:11px;
+            margin-bottom:2px;'>
+        
+            {row['判定']}
+        
+            </div>
+        
+            <div style='color:white;
+            font-size:11px;'>
+        
+            RSI {row['RSI']}
+            |
+        
+            PER {row['PER']}
+        
+            </div>
+        
+            </div>
+        
+            </div>
+        
+            </div>
+        
+            """, unsafe_allow_html=True)
 
         st.markdown(f"""
         <div style='padding:10px 12px;
@@ -681,37 +688,6 @@ if st.session_state.get("run_screening"):
                 )
 
             return ""
-
-        # styled_df = (
-        #     push_df.style
-        #     .map(
-        #         color_signal,
-        #         subset=["判定"]
-        #     )
-        #     .background_gradient(
-        #         subset=["RSI"],
-        #         cmap="RdYlGn_r"
-        #     )
-        #     .background_gradient(
-        #         subset=["売上成長率(%)"],
-        #         cmap="Greens"
-        #     )
-        #     .background_gradient(
-        #         subset=["PER"],
-        #         cmap="Reds_r"
-        #     )
-        # )
-
-        # st.dataframe(
-        #     styled_df,
-        #     use_container_width=True,
-        #     height=700,
-        #     column_config={
-        #         "AI分析": st.column_config.TextColumn(
-        #             width="large"
-        #         )
-        #     }
-        # )
 
         st.markdown(
             f"## 📊 {theme} 押し目ランキング"
