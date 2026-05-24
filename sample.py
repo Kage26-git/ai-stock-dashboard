@@ -357,31 +357,30 @@ if st.session_state.get("run_screening"):
                     if revenue_growth is not None:
 
                         if revenue_growth > 20:
-                            comment += "🚀 高成長を維持。 "
+                            comment += "🚀 高成長 / "
 
                         elif revenue_growth < 0:
-                            comment += "📉 売上成長が鈍化。 "
+                            comment += "📉 成長鈍化 / "
 
                     if rsi is not None:
 
                         if rsi < 40:
-                            comment += "🟢 RSI低下で押し目水準。 "
+                            comment += "🟢 押し目 / "
 
                         elif rsi > 70:
-                            comment += "🔥 過熱感に注意。 "
-
+                            comment += "🔥 過熱 / "
                     if divergence is not None:
 
                         if divergence < -5:
-                            comment += "📉 移動平均線から大きく下落。 "
+                            comment += "📉 MA乖離 / "
 
                     if per is not None:
 
                         if per < 15:
-                            comment += "💰 PER割安感あり。 "
+                            comment += "💰 割安 / "
 
                         elif per > 40:
-                            comment += "⚠️ PER高水準。 "
+                            comment += "⚠️ 割高 / "
 
             # =====================================
             # データ追加
@@ -587,10 +586,10 @@ if st.session_state.get("run_screening"):
                 """, unsafe_allow_html=True)
 
         st.markdown(f"""
-        <div style='padding:16px;
+        <div style='padding:10px 12px;
         background-color:#1A1D24;
         border-radius:15px;
-        margin-bottom:8px;
+        margin-bottom:4px;
         border:1px solid #00FFAA;'>
 
         <h4 style='color:#00FFAA;
@@ -716,80 +715,82 @@ if st.session_state.get("run_screening"):
 
         st.markdown(
             f"## 📊 {theme} 押し目ランキング"
-        )
-
+                )
         for _, row in push_df.iterrows():
-
+        
             signal_color = "#00FFAA"
-
+        
             if "過熱" in str(row["判定"]):
-
+        
                 signal_color = "#FF4B4B"
-
+        
             st.markdown(f"""
-
+        
             <div class='glass-card'
-            style='margin-bottom:8px;
-            padding:16px;'>
-
+            style='margin-bottom:4px;
+            padding:10px 12px;'>
+        
             <div style='display:flex;
             justify-content:space-between;
-            align-items:flex-start;'>
-
-            <div style='width:70%;'>
-
-            <h3 style='color:white;
-            margin-bottom:8px;'>
-
+            align-items:center;'>
+        
+            <!-- 左側 -->
+        
+            <div style='width:82%;'>
+        
+            <h4 style='color:white;
+            margin:0 0 2px 0;
+            font-size:15px;
+            font-weight:600;'>
+        
             #{row['順位']}
             {row['銘柄']}
-
-            </h3>
-
-            <p style='color:#BBBBBB;
-            font-size:13px;
-            margin-bottom:0;'>
-
+        
+            </h4>
+        
+            <div style='color:#BBBBBB;
+            font-size:11px;
+            line-height:1.3;'>
+        
             {row['AI分析']}
-
-            </p>
-
+        
             </div>
-
+        
+            </div>
+        
+            <!-- 右側 -->
+        
             <div style='text-align:right;'>
-
+        
             <div style='color:{signal_color};
-            font-weight:bold;
-            margin-bottom:8px;'>
-
+            font-size:11px;
+            font-weight:600;
+            margin-bottom:2px;'>
+        
             {row['判定']}
-
+        
             </div>
-
+        
             <div style='color:white;
-            font-size:13px;'>
-
-            RSI:
-            {row['RSI']}
-
-            <br>
-
-            PER:
-            {row['PER']}
-
-            <br>
-
-            成長率:
-            {row['売上成長率(%)']}%
-
+            font-size:11px;
+            white-space:nowrap;'>
+        
+            RSI {row['RSI']}
+            ｜
+        
+            PER {row['PER']}
+            ｜
+        
+            PBR {row['PBR']}
+        
             </div>
-
+        
             </div>
-
+        
             </div>
-
+        
             </div>
-
+        
             """, unsafe_allow_html=True)
 
     # =====================================
