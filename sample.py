@@ -38,17 +38,31 @@ if "booted" not in st.session_state:
     font-size:42px;
     margin-bottom:10px;'>
 
-    🐻 AI株投資
+    🐻 AI株投資 🐻
 
     </h1>
 
-    <p style='color:white;
+    <div style='color:white;
     font-size:18px;
-    letter-spacing:2px;'>
-
-    INITIALIZING...
-
-    </p>
+    letter-spacing:2px;
+    margin-top:10px;
+    animation:pulse 1.2s infinite;'>
+    
+    INITIALIZING AI ENGINE...
+    
+    </div>
+    
+    <div style='color:#00FFAA;
+    font-size:13px;
+    margin-top:12px;
+    line-height:1.8;
+    font-family:monospace;'>
+    
+    > SCANNING AI...<br>
+    > SCANNING SEMICONDUCTOR...<br>
+    > SCANNING DEFENSE...
+    
+    </div>
 
     <div style='width:240px;
     height:10px;
@@ -59,8 +73,14 @@ if "booted" not in st.session_state:
 
     <div style='width:80%;
     height:100%;
-    background:#00FFAA;
-    animation: loading 2s linear;'>
+    background:linear-gradient(
+    90deg,
+    #00FFAA,
+    #4DA3FF,
+    #00FFAA
+    );
+    background-size:200% 100%;
+    animation:loading 2s linear infinite;'>
 
     </div>
 
@@ -143,6 +163,32 @@ st.markdown("""
             170,
             0.18
         );
+}
+
+@keyframes pulse {
+
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes loading {
+
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 200% 0%;
+    }
 }
 
 </style>
