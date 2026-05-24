@@ -592,58 +592,58 @@ if st.session_state.get("run_screening"):
         
             """, unsafe_allow_html=True)
 
-        col1, col2, col3 = st.columns(3)
+        # col1, col2, col3 = st.columns(3)
 
-        kpi_data = [
+        # kpi_data = [
 
-            (
-                "📊 押し目候補数",
-                len(df),
-                "#00FFAA"
-            ),
+        #     (
+        #         "📊 押し目候補数",
+        #         len(df),
+        #         "#00FFAA"
+        #     ),
 
-            (
-                "📉 平均RSI",
-                round(df["RSI"].mean(), 1),
-                "#4DA3FF"
-            ),
+        #     (
+        #         "📉 平均RSI",
+        #         round(df["RSI"].mean(), 1),
+        #         "#4DA3FF"
+        #     ),
 
-            (
-                "💰 平均PER",
-                round(df["PER"].mean(), 1),
-                "#FFB84D"
-            )
-        ]
+        #     (
+        #         "💰 平均PER",
+        #         round(df["PER"].mean(), 1),
+        #         "#FFB84D"
+        #     )
+        # ]
 
-        for col, (title, value, color) in zip(
-            [col1, col2, col3],
-            kpi_data
-        ):
+        # for col, (title, value, color) in zip(
+        #     [col1, col2, col3],
+        #     kpi_data
+        # ):
 
-            with col:
+        #     with col:
 
-                st.markdown(f"""
+        #         st.markdown(f"""
 
-                <div class='glass-card'
-                style='text-align:center;'>
+        #         <div class='glass-card'
+        #         style='text-align:center;'>
 
-                <h3 style='color:{color};
-                margin-bottom:8px;'>
+        #         <h3 style='color:{color};
+        #         margin-bottom:8px;'>
 
-                {title}
+        #         {title}
 
-                </h3>
+        #         </h3>
 
-                <h1 style='color:white;
-                font-size:32px;'>
+        #         <h1 style='color:white;
+        #         font-size:32px;'>
 
-                {value}
+        #         {value}
 
-                </h1>
+        #         </h1>
 
-                </div>
+        #         </div>
 
-                """, unsafe_allow_html=True)
+        #         """, unsafe_allow_html=True)
 
         # st.subheader(
         # f"📊 {theme} 押し目ランキング"
